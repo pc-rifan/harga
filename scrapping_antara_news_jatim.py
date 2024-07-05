@@ -1,9 +1,12 @@
 # IMPORT LIBRARY
-import streamlit as st
+import io
 import requests
+import streamlit as st
 import pandas as pd
 from bs4 import BeautifulSoup
-from google.colab import files
+
+# buffer to use for excel writer
+buffer = io.BytesIO()
 
 
 form = st.form(key='Scrapping Antara News Jatim')
@@ -49,22 +52,25 @@ if submit:
 		break
 	  
 	  page = page + 1
+    
+    data = {
+      "judul": judul,
+      "tanggal": tanggal,
+      "link": link
+    }
 
-    st.write('Scrapping selesai, silahkan unduh hasilnya')
+    df = pd.DataFrame(data)
 
+    st.write('RESULT')
+    st.write(df)
 
-form1 = st.form(key='Unduh Hasil Scrapping')
-submit1 = form1.form_submit_button('Sr')
+# DOWNLOAD BUTTON
+with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+    df.to_excel(writer, sheet_name='Sheet1', index=False)
 
-if submit1:
-	# DOWNLOAD REPORT
-	fileName = "scrapping " + query + " " + startDate + " sd " + endDate + ".xlsx"
-	data = {
-	  "judul": judul,
-	  "tanggal": tanggal,
-	  "link": link
-	}
-
-	df = pd.DataFrame(data)
-	df.to_excel(fileName)
-	files.download(fileName)
+    download2 = st.download_button(
+        label="Download",
+        data=buffer,
+        file_name="scrapping " + query + " " + startDate + " sd " + endDate + ".xlsx",
+        mime='application/vnd.ms-excel'
+    )
