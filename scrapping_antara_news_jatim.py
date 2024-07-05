@@ -16,6 +16,7 @@ endDate = form.text_input('Isikan tanggal akhir')
 submit = form.form_submit_button('Sr')
 
 maxPage = 10
+df = pd.DataFrame()
 
 if submit:
 
