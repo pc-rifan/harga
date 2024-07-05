@@ -8,11 +8,10 @@ from bs4 import BeautifulSoup
 # buffer to use for excel writer
 buffer = io.BytesIO()
 
-
 form = st.form(key='Scrapping Antara News Jatim')
 query = form.text_input('Masukan kata kunci')
-startDate = form.text_input('Isikan tanggal Mulai')
-endDate = form.text_input('Isikan tanggal akhir')
+startDate = form.text_input('Periode awal berita (format: DD-MM-YYYY)')
+endDate = form.text_input('Periode akhir berita (format: DD-MM-YYYY)')
 submit = form.form_submit_button('Scrape Now!')
 
 maxPage = 10
