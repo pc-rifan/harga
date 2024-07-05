@@ -13,7 +13,7 @@ form = st.form(key='Scrapping Antara News Jatim')
 query = form.text_input('Masukan kata kunci')
 startDate = form.text_input('Isikan tanggal Mulai')
 endDate = form.text_input('Isikan tanggal akhir')
-submit = form.form_submit_button('Sr')
+submit = form.form_submit_button('Scrape Now!')
 
 maxPage = 10
 df = pd.DataFrame()
@@ -59,11 +59,12 @@ if submit:
 	st.write(df)
 
 # DOWNLOAD TO CSV
-csv = df.to_csv(index=False).encode('utf-8')
-st.download_button(
-   "Unduh Hasil",
-   csv,
-   "scrapping " + query + " " + startDate + " sd " + endDate + ".csv",
-   "text/csv",
-   key='download-csv'
-)
+if not df.empty:
+	csv = df.to_csv(index=False).encode('utf-8')
+	st.download_button(
+   	"Unduh Hasil",
+   	csv,
+   	"scrapping " + query + " " + startDate + " sd " + endDate + ".csv",
+   	"text/csv",
+   	key='download-csv'
+	)
