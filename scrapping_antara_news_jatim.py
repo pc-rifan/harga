@@ -54,9 +54,9 @@ if submit:
 	  page = page + 1
     
     data = {
-      "judul": judul,
-      "tanggal": tanggal,
-      "link": link
+	    "judul": judul,
+	    "tanggal": tanggal,
+	    "link": link
     }
 
     df = pd.DataFrame(data)
