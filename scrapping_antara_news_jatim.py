@@ -53,7 +53,7 @@ if submit:
 	  
 	  page = page + 1
     
-    data = {"judul": judul, "tanggal": tanggal, "link": link}
+    data = [judul, tanggal, link]
 
     df = pd.DataFrame(data)
 
