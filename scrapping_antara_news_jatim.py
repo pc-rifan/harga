@@ -57,14 +57,3 @@ if submit:
 	df = pd.DataFrame(data)
 	st.write('RESULT')
 	st.write(df)
-
-# DOWNLOAD TO CSV
-if not df.empty:
-	csv = df.to_csv(index=False).encode('utf-8')
-	st.download_button(
-   	"Unduh Hasil",
-   	csv,
-   	"scrapping " + query + " " + startDate + " sd " + endDate + ".csv",
-   	"text/csv",
-   	key='download-csv'
-	)
