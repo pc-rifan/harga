@@ -49,7 +49,7 @@ if submit:
 		  link.append(element.find("a")["href"])
 
 	  if len(judul) < 10 or page == maxPage:
-		break
+		  break
 	  
 	  page = page + 1
     
