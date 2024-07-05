@@ -57,13 +57,14 @@ if submit:
 	st.write('RESULT')
 	st.write(df)
 
-# DOWNLOAD BUTTON
-with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
-    df.to_excel(writer, sheet_name='Sheet1', index=False)
+# DOWNLOAD TO CSV
+df.to_csv(index=False).encode('utf-8')
+csv = convert_df(df)
 
-    download2 = st.download_button(
-        label="Download",
-        data=buffer,
-        file_name="scrapping " + query + " " + startDate + " sd " + endDate + ".xlsx",
-        mime='application/vnd.ms-excel'
-    )
+st.download_button(
+   "Unduh Hasil",
+   csv,
+   "scrapping " + query + " " + startDate + " sd " + endDate + ".csv",
+   "text/csv",
+   key='download-csv'
+)
