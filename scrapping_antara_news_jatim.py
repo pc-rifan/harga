@@ -37,28 +37,25 @@ if submit:
 	page = 2
 
 	while True:
-	  url = "https://jatim.antaranews.com/search/" + query + "/" + startDate + "/" + endDate + "/" + str(page)
-	  webpage = requests.get(url)
-
-	  soup = BeautifulSoup(webpage.content, "html.parser")
-	  elements = soup.find_all("article", class_="simple-post simple-big clearfix")
-
-	  for element in elements:
-		  judul.append(element.find("a")["title"])
-		  tanggal.append(element.find("span").text)
-		  link.append(element.find("a")["href"])
-
-	  if len(judul) < 10 or page == maxPage:
-		  break
-	  
-	  page = page + 1
-    
-    data = {'judul': judul, 'tanggal': tanggal, 'link': link}
-
-    df = pd.DataFrame(data)
-
-    st.write('RESULT')
-    st.write(df)
+		url = "https://jatim.antaranews.com/search/" + query + "/" + startDate + "/" + endDate + "/" + str(page)
+		webpage = requests.get(url)
+		soup = BeautifulSoup(webpage.content, "html.parser")
+		elements = soup.find_all("article", class_="simple-post simple-big clearfix")
+		
+		for element in elements:
+			judul.append(element.find("a")["title"])
+			tanggal.append(element.find("span").text)
+			link.append(element.find("a")["href"])
+		
+		if len(judul) < 10 or page == maxPage:
+			break
+		
+		page = page + 1
+		
+	data = {'judul': judul, 'tanggal': tanggal, 'link': link}
+	df = pd.DataFrame(data)
+	st.write('RESULT')
+	st.write(df)
 
 # DOWNLOAD BUTTON
 with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
