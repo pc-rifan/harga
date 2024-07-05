@@ -59,9 +59,7 @@ if submit:
 	st.write(df)
 
 # DOWNLOAD TO CSV
-df.to_csv(index=False).encode('utf-8')
-csv = convert_df(df)
-
+csv = df.to_csv(index=False).encode('utf-8')
 st.download_button(
    "Unduh Hasil",
    csv,
