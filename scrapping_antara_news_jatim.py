@@ -29,9 +29,9 @@ if submit:
 	judul = []; tanggal = []; link = []
 
 	for element in elements:
-	  judul.append(element.find("a")["title"])
-	  tanggal.append(element.find("span").text)
-	  link.append(element.find("a")["href"])
+		judul.append(element.find("a")["title"])
+		tanggal.append(element.find("span").text)
+		link.append(element.find("a")["href"])
 	  
 	# SCRAPPING OTHER PAGES
 	page = 2
