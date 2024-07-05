@@ -44,9 +44,9 @@ if submit:
 	  elements = soup.find_all("article", class_="simple-post simple-big clearfix")
 
 	  for element in elements:
-		judul.append(element.find("a")["title"])
-		tanggal.append(element.find("span").text)
-		link.append(element.find("a")["href"])
+		  judul.append(element.find("a")["title"])
+		  tanggal.append(element.find("span").text)
+		  link.append(element.find("a")["href"])
 
 	  if len(judul) < 10 or page == maxPage:
 		break
