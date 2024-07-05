@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 # buffer to use for excel writer
 buffer = io.BytesIO()
 
-st.header("SCRAPPING DATA FROM ANTARA NEWS JATIM")
+st.subheader("SCRAPPING DATA FROM ANTARA NEWS JATIM")
 
 form = st.form(key='Scrapping Antara News Jatim')
 query = form.text_input('Masukan kata kunci')
