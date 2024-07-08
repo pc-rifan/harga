@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 import scrapBerita as sb
 
-st.subheader("SCRAPPING BERITA ONLI")
+st.subheader("SCRAPPING BERITA ONLINE")
 
 today = datetime.datetime.now()
 
@@ -18,7 +18,7 @@ df = pd.DataFrame()
 
 if submit:
 
-	df = sb.antaraNewsJatim(query, startDate, endDate)
+	df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
     
 	st.write('RESULT')
 	st.write(df)
