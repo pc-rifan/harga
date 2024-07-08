@@ -18,11 +18,14 @@ df = pd.DataFrame()
 
 if submit:
 
-	container = st.warning('This is a warning', icon="⚠️")
+	alert = st.warning('Scraping in progress...', icon="⚠️")
 
 	df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
 
-	container = st.success('This is a success')
-	
+	alert.empty()
+	success = st.success("Success")
 	st.write('RESULT')
 	st.write(df)
+
+	time.sleep(3)
+	success.empty()
