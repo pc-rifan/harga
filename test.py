@@ -28,6 +28,8 @@ if submit:
 	endDate = str(endDate).replace("-", "/")
 	judul = []; tanggal = []; link = []
 
+	st.write(startDate)
+	
 	while True:
 		url = "https://www.detik.com/search/searchnews?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
 		webpage = requests.get(url)
