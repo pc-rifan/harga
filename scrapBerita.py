@@ -59,7 +59,7 @@ def detikJatim(query, startDate, endDate):
 		
 		for element in elements:
 			judul.append(element.find("a")["dtr-ttl"])
-			tanggal.append(element.find("span").text)
+			tanggal.append(element.find("div", class_="media__date").text.replace("\n", ""))
 			link.append(element.find("a")["href"])
 		
 		if len(judul) < 10 or page == maxPage:
