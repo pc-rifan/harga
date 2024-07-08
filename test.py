@@ -12,12 +12,9 @@ today = datetime.datetime.now()
 
 form = st.form(key='Scrapping Berita')
 query = form.text_input('Masukan kata kunci')
-startDate = form.date_input('Periode awal berita', datetime.date(today.year, today.month, 1), format="DD-MM-YYYY")
-endDate = form.date_input('sampai dengan', today, format="DD-MM-YYYY")
+startDate = form.date_input('Periode awal berita', datetime.date(today.year, today.month, 1), format="DD-MM-YYYY").strftime("%D-%M%-%Y")
+endDate = form.date_input('sampai dengan', today, format="DD-MM-YYYY").strftime("%D-%M%-%Y")
 submit = form.form_submit_button('Scrape Now!')
-
-startDate = datetime.strptime(startDate, "%D-%M%-%Y")
-endDate = datetime.strptime(endDate, "%D-%M%-%Y")
 
 df = pd.DataFrame()
 
