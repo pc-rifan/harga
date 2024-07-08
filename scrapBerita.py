@@ -44,7 +44,7 @@ def antaraNewsJatim(query, startDate, endDate):
 	
 	return(df)
 
-def detikJatim(query, startDate, endDate)
+def detikJatim(query, startDate, endDate):
 
 	page = 1
 	startDate = startDate.replace("-", "/")
