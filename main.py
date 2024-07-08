@@ -18,7 +18,11 @@ df = pd.DataFrame()
 
 if submit:
 
+	container = st.warning('This is a warning', icon="⚠️")
+
 	df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
-    
+
+	container = st.success('This is a success')
+	
 	st.write('RESULT')
 	st.write(df)
