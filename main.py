@@ -16,7 +16,7 @@ df = pd.DataFrame()
 
 if submit:
 
-	df = antaraNewsJatim(query, startDate, endDate)
+	df = sb.antaraNewsJatim(query, startDate, endDate)
     
 	st.write('RESULT')
 	st.write(df)
