@@ -23,21 +23,17 @@ maxPage = 10
 
 if submit:
 
-	st.write(startDate)
-	st.write(endDate)
-
 	startDate = str(startDate).replace("-", "/")
 	endDate = str(endDate).replace("-", "/")
 	judul = []; tanggal = []; link = []
-
-	st.write(startDate)
-	st.write(endDate)
 	
 	while True:
 		url = "https://www.detik.com/search/searchnews?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
 		webpage = requests.get(url)
 		soup = BeautifulSoup(webpage.content, "html.parser")
 		elements = soup.find_all("article", class_="list-content__item")
+
+		st.write(url)
 
 		for element in elements:
 			judul.append(element.find("a")["dtr-ttl"])
