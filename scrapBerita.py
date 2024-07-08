@@ -72,4 +72,4 @@ def detikJatim(query, startDate, endDate):
 	data = {'judul': judul, 'tanggal': tanggal, 'sumber': sumber, 'link': link}
 	df = pd.DataFrame(data)
 	
-	return(df.sort_values('tanggal'))
+	return(df)
