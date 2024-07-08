@@ -52,7 +52,7 @@ def detikJatim(query, startDate, endDate):
 	judul = []; tanggal = []; link = []
 
 	while True:
-		url = "https://www.detik.com/search/searchall?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
+		url = "https://www.detik.com/search/searchnews?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
 		webpage = requests.get(url)
 		soup = BeautifulSoup(webpage.content, "html.parser")
 		elements = soup.find_all("article", class_="list-content__item")
