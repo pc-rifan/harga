@@ -21,8 +21,8 @@ if submit:
 
 	alert = st.warning('Scraping in progress...', icon="⚠️")
 
-	df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
-	df = df.append(sb.detikJatim(query, str(startDate), str(endDate)))
+	df = sb.antaraNewsJatim(query, startDate, endDate)
+	df = df.append(sb.detikJatim(query, startDate, endDate))
 
 	df = df.sort_values('tanggal')
 
