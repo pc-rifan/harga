@@ -24,8 +24,8 @@ maxPage = 10
 
 if submit:
 
-	startDate = startDate.replace("-", "/")
-	endDate = endDate.replace("-", "/")
+	startDate = str(startDate).replace("-", "/")
+	endDate = str(endDate).replace("-", "/")
 	judul = []; tanggal = []; link = []
 
 	while True:
