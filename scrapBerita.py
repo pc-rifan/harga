@@ -2,6 +2,8 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
+maxPage = 10
+
 def antaraNewsJatim(query, startDate, endDate):
 
 	# SCRAPPING PAGE #1
