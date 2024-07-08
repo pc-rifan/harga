@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 import scrapBerita as sb
 
-st.subheader("SCRAPPING BERITA ONLE")
+st.subheader("SCRAPPING BERITA ONLINE")
 
 today = datetime.datetime.now()
 
