@@ -17,7 +17,7 @@ def antaraNewsJatim(query, startDate, endDate):
 
 	for element in elements:
 		judul.append(element.find("a")["title"])
-		tanggal.append(element.find("span").text)
+		tanggal.append(element.find("div", class_="media__date").text)
 		link.append(element.find("a")["href"])
 	  
 	# SCRAPPING OTHER PAGES
