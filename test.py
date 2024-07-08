@@ -43,3 +43,5 @@ if submit:
 			break
 		
 		page = page + 1
+	
+	st.write(df)
