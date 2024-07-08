@@ -17,6 +17,9 @@ startDate = form.date_input('Periode awal berita', datetime.date(today.year, tod
 endDate = form.date_input('sampai dengan', today, format="DD-MM-YYYY")
 submit = form.form_submit_button('Scrape Now!')
 
+startDate = datetime.strptime(startDate, "%D-%M%-%Y")
+endDate = datetime.strptime(endDate, "%D-%M%-%Y")
+
 df = pd.DataFrame()
 
 page = 1
