@@ -33,7 +33,7 @@ if submit:
 		soup = BeautifulSoup(webpage.content, "html.parser")
 		elements = soup.find_all("article", class_="list-content__item")
 
-		st.write(url)
+		st.write(elements)
 
 		for element in elements:
 			judul.append(element.find("a")["dtr-ttl"])
