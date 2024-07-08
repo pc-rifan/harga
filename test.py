@@ -25,12 +25,14 @@ maxPage = 10
 if submit:
 
 	st.write(startDate)
+	st.write(endDate)
 
 	startDate = str(startDate).replace("-", "/")
 	endDate = str(endDate).replace("-", "/")
 	judul = []; tanggal = []; link = []
 
 	st.write(startDate)
+	st.write(endDate)
 	
 	while True:
 		url = "https://www.detik.com/search/searchnews?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
