@@ -13,7 +13,7 @@ def antaraNewsJatim(query, startDate, endDate):
 	soup = BeautifulSoup(webpage.content, "html.parser")
 	elements = soup.find_all("article", class_="simple-post simple-big clearfix")
 
-	judul = []; tanggal = []; link = []
+	judul = []; tanggal = []; sumber = []; link = []
 
 	for element in elements:
 		judul.append(element.find("a")["title"])
@@ -32,6 +32,7 @@ def antaraNewsJatim(query, startDate, endDate):
 		for element in elements:
 			judul.append(element.find("a")["title"])
 			tanggal.append(element.find("span").text)
+			sumber.append("Antara News Jawa Timur")
 			link.append(element.find("a")["href"])
 		
 		if len(judul) < 10 or page == maxPage:
@@ -39,7 +40,7 @@ def antaraNewsJatim(query, startDate, endDate):
 		
 		page = page + 1
 		
-	data = {'judul': judul, 'tanggal': tanggal, 'link': link}
+	data = {'judul': judul, 'tanggal': tanggal, 'sumber': sumber, 'link': link}
 	df = pd.DataFrame(data)
 	
 	return(df)
@@ -49,7 +50,7 @@ def detikJatim(query, startDate, endDate):
 	page = 1
 	startDate = startDate.replace("-", "/")
 	endDate = endDate.replace("-", "/")
-	judul = []; tanggal = []; link = []
+	judul = []; tanggal = []; sumber = []; link = []
 	
 	while True:
 		url = "https://www.detik.com/search/searchnews?query=" + query + "&page=" + str(page) + "&result_type=latest&siteid=119&fromdatex=" + startDate + "&todatex=" + endDate
@@ -60,6 +61,7 @@ def detikJatim(query, startDate, endDate):
 		for element in elements:
 			judul.append(element.find("a")["dtr-ttl"])
 			tanggal.append(element.find("div", class_="media__date").text.replace("\n", ""))
+			sumber.append("Detik Jawa Timur")
 			link.append(element.find("a")["href"])
 		
 		if len(judul) < 10 or page == maxPage:
@@ -67,7 +69,7 @@ def detikJatim(query, startDate, endDate):
 		
 		page = page + 1
 		
-	data = {'judul': judul, 'tanggal': tanggal, 'link': link}
+	data = {'judul': judul, 'tanggal': tanggal, 'sumber': sumber, 'link': link}
 	df = pd.DataFrame(data)
 	
 	return(df)
