@@ -21,7 +21,8 @@ if submit:
 
 	alert = st.warning('Scraping in progress...', icon="⚠️")
 
-	df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
+	#df = sb.antaraNewsJatim(query, str(startDate), str(endDate))
+	df = sb.detikJatim(query, str(startDate), str(endDate))
 
 	alert.empty()
 	success = st.success("Success")
